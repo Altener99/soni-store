@@ -10,7 +10,7 @@ function Items() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/products');
+        const response = await axios.get('https://soni-store-backend-fvgj.vercel.app/products');
         setProducts(response.data);
         console.log(response.data);
       } catch (error) {
@@ -56,7 +56,7 @@ function Items() {
     else
     {
       console.log("access");
-      axios.put(`http://localhost:3000/addtocart`, {title,price,productId,image}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+      axios.put(`https://soni-store-backend-fvgj.vercel.app/addtocart`, {title,price,productId,image}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
         
         console.log(response.data);
         alert('Item added to cart');

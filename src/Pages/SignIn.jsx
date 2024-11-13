@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   // Set base URL for axios
-  axios.defaults.baseURL = 'http://localhost:3000';
+  axios.defaults.baseURL = 'https://soni-store-backend-fvgj.vercel.app';
 
   const { signIn } = useAuth();
 

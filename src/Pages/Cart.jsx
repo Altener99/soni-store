@@ -41,7 +41,7 @@ function Cart() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3000/orders",
+      url: "https://soni-store-backend-fvgj.vercel.app/orders",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -94,7 +94,7 @@ function Cart() {
 
     const paymentId = e.target.paymentId.value;
 
-    axios.get(`http://localhost:3000/payment/${paymentId}`)
+    axios.get(`https://soni-store-backend-fvgj.vercel.app/payment/${paymentId}`)
     .then((response) => {
       console.log(response.data);
       setResponseState(response.data)
@@ -108,7 +108,7 @@ function Cart() {
     const fetchCartItems = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('http://localhost:3000/cart', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://soni-store-backend-fvgj.vercel.app/cart', { headers: { Authorization: `Bearer ${token}` } });
         console.log(response.data);
         setCartItems(response.data);
       } catch (error) {
@@ -133,7 +133,7 @@ function Cart() {
   // Handle item quantity increase/decrease
   const updateQuantity = (id, increment) => {
    const token = localStorage.getItem('authToken');
-    axios.put(`http://localhost:3000/cart/${id}`, { quantity: increment }, { headers: { Authorization: `Bearer ${token}` } }).then((response) => {
+    axios.put(`https://soni-store-backend-fvgj.vercel.app/cart/${id}`, { quantity: increment }, { headers: { Authorization: `Bearer ${token}` } }).then((response) => {
       setCartItems(response.data);
       console.log(response.data);
     }).catch((error) => {
@@ -149,7 +149,7 @@ function Cart() {
    const removeItem = async (id) => {
     console.log(id);
     const token = localStorage.getItem('authToken');
-    await axios.delete(`http://localhost:3000/cart/${id}`, { headers
+    await axios.delete(`https://soni-store-backend-fvgj.vercel.app/cart/${id}`, { headers
 : { Authorization: `Bearer ${token}` } }).then((response) => {
       setCartItems(response.data);
       console.log(response.data);
