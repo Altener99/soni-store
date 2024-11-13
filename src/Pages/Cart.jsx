@@ -85,7 +85,7 @@ function Cart() {
       }
     }
 
-    const paymentObject = new window.Razorpay({key})
+    const paymentObject = new window.Razorpay(options)
     paymentObject.open()
   }
 
