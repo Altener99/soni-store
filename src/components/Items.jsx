@@ -42,7 +42,7 @@ function Items() {
   const fecthtoken = async () => await localStorage.getItem('authToken');
 
   // Function to handle adding to cart
-  const addToCart = (product) => {
+  const addToCart = async (product) => {
 
     const title = product.title;
     const price = product.price;
@@ -56,7 +56,7 @@ function Items() {
     else
     {
       console.log("access");
-      axios.put(`https://soni-store-backend-fvgj.vercel.app/addtocart`, {title,price,productId,image}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+      await axios.put(`https://soni-store-backend-fvgj.vercel.app/addtocart`, {title,price,productId,image}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
         
         console.log(response.data);
         alert('Item added to cart');
