@@ -85,7 +85,7 @@ function Cart() {
       }
     }
 
-    const paymentObject = new window.Razorpay({key})
+    const paymentObject = new window.Razorpay(options)
     paymentObject.open()
   }
 
@@ -160,6 +160,7 @@ function Cart() {
   };
 
   return (
+    
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100">
       <Navbar />
       <div className="container mx-auto py-12 px-6 lg:px-20">
@@ -249,6 +250,8 @@ function Cart() {
           </div>
         </div>
       </div>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
       <Footer />
     </div>
   );
