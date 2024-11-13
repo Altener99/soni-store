@@ -67,7 +67,7 @@ function Cart() {
     }
 
     const options = {
-      key: 'rzp_test_GcZZFDPP0jHtC4',
+      key: 'rzp_test_nuYNLFgh8yEQ3O',
       amount: amount,
       currency: 'INR',
       name: "Soni Store",
