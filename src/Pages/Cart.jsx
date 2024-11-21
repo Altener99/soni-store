@@ -54,7 +54,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3000/orders",
+      url: "https://soni-store-backend-fvgj.vercel.app/orders",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -108,7 +108,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
     const paymentId = e.target.paymentId.value;
 
-    axios.get(`http://localhost:3000/payment/${paymentId}`)
+    axios.get(`https://soni-store-backend-fvgj.vercel.app/payment/${paymentId}`)
     .then((response) => {
       console.log(response.data);
       setResponseState(response.data)
@@ -122,7 +122,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     const fetchCartItems = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('http://localhost:3000/cart', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://soni-store-backend-fvgj.vercel.app/cart', { headers: { Authorization: `Bearer ${token}` } });
         console.log(response.data);
         setCartItems(response.data);
       } catch (error) {
@@ -140,7 +140,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     const fetchAddresses = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("http://localhost:3000/address", {
+        const response = await axios.get("https://soni-store-backend-fvgj.vercel.app/address", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAddresses(response.data);
@@ -158,7 +158,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   //   const fetchAddresses = async () => {
   //     try {
   //       const token = localStorage.getItem("authToken");
-  //       const response = await axios.get("http://localhost:3000/address", {
+  //       const response = await axios.get("https://soni-store-backend-fvgj.vercel.app/address", {
   //         headers: { Authorization: `Bearer ${token}` },
   //       });
   //       setAddresses(response.data);
@@ -177,7 +177,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   // Handle item quantity increase/decrease
   const updateQuantity = (id, increment) => {
    const token = localStorage.getItem('authToken');
-    axios.put(`http://localhost:3000/cart/${id}`, { quantity: increment }, { headers: { Authorization: `Bearer ${token}` } }).then((response) => {
+    axios.put(`https://soni-store-backend-fvgj.vercel.app/cart/${id}`, { quantity: increment }, { headers: { Authorization: `Bearer ${token}` } }).then((response) => {
       setCartItems(response.data);
       console.log(response.data);
     }).catch((error) => {
@@ -193,7 +193,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
    const removeItem = async (id) => {
     console.log(id);
     const token = localStorage.getItem('authToken');
-    await axios.delete(`http://localhost:3000/cart/${id}`, { headers
+    await axios.delete(`https://soni-store-backend-fvgj.vercel.app/cart/${id}`, { headers
 : { Authorization: `Bearer ${token}` } }).then((response) => {
       setCartItems(response.data);
       console.log(response.data);
@@ -206,7 +206,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   // const setOrders = () => {
   //   try{
   //     const token = localStorage.getItem('authToken');
-  //     axios.post('http://localhost:3000/orders', { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+  //     axios.post('https://soni-store-backend-fvgj.vercel.app/orders', { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
   //       console.log(response.data);
   //       setOrders(response.data);
   //     }).catch((error) => {
@@ -232,7 +232,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         image: item.image
       };
     });
-    await axios.put('http://localhost:3000/setorders', {orders}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+    await axios.put('https://soni-store-backend-fvgj.vercel.app/setorders', {orders}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
       console.log(response.data);
       navigate('/orders');
     }).catch((error) => {
@@ -244,7 +244,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.post(
-        "http://localhost:3000/address",
+        "https://soni-store-backend-fvgj.vercel.app/address",
         newAddress,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -260,7 +260,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       setIsModalOpen(false); 
         try {
           const token = localStorage.getItem("authToken");
-          const response = await axios.get("http://localhost:3000/address", {
+          const response = await axios.get("https://soni-store-backend-fvgj.vercel.app/address", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setAddresses(response.data);

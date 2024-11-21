@@ -18,7 +18,7 @@ function Addproduct() {
 
         const product = { title, description, price, category, features ,images };
         try {
-            const response = await axios.post('http://localhost:3000/addproduct', product);
+            const response = await axios.post('https://soni-store-backend-fvgj.vercel.app/addproduct', product);
             console.log(response);
         } catch (error) {
             console.error(error);

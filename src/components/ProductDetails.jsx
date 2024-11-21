@@ -25,7 +25,7 @@ function ProductDetails() {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/products/${productId}`);
+        const response = await axios.get(`https://soni-store-backend-fvgj.vercel.app/products/${productId}`);
         setProducts(response.data);
         console.log(response.data);
       } catch (error) {
@@ -61,7 +61,7 @@ function ProductDetails() {
     else
     {
       console.log("access");
-      axios.put(`http://localhost:3000/addtocart`, {title,price,productId,image,itemquantity}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+      axios.put(`https://soni-store-backend-fvgj.vercel.app/addtocart`, {title,price,productId,image,itemquantity}, { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
         
         console.log(response.data);
         alert('Item added to cart');
@@ -99,7 +99,7 @@ function ProductDetails() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3000/orders",
+      url: "https://soni-store-backend-fvgj.vercel.app/orders",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -174,7 +174,7 @@ function ProductDetails() {
 
     console.log(orders);  
 
-    await axios.put('http://localhost:3000/setorders', {orders}, { headers: { Authorization: `Bearer ${token}` , orders:"true"}}).then((response) => {
+    await axios.put('https://soni-store-backend-fvgj.vercel.app/setorders', {orders}, { headers: { Authorization: `Bearer ${token}` , orders:"true"}}).then((response) => {
       console.log(response.data);
       navigate('/orders');
     }).catch((error) => {

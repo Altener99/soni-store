@@ -15,7 +15,7 @@ function Orders() {
 
                 const token = localStorage.getItem('authToken');
                 console.log(token);
-              await axios.get('http://localhost:3000/getorders', { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
+              await axios.get('https://soni-store-backend-fvgj.vercel.app/getorders', { headers: { Authorization: `Bearer ${token}` }}).then((response) => {
                     console.log(response.data);
                     setOrders(response.data);
                 }).catch((error) => {

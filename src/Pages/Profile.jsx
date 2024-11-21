@@ -12,7 +12,7 @@ function Profile() {
     const fetchProfileData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('http://localhost:3000/profile', {
+        const response = await axios.get('https://soni-store-backend-fvgj.vercel.app/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(response.data);
@@ -35,7 +35,7 @@ function Profile() {
       const token = localStorage.getItem('authToken');
       const username = userData.username;
       const email = userData.email;
-      const response = await axios.put('http://localhost:3000/profile',{username, email}, {
+      const response = await axios.put('https://soni-store-backend-fvgj.vercel.app/profile',{username, email}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log(response.data);
